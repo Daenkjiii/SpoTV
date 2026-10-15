@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpoTV — Party Before Monday!</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Dynamic Canvas Background -->
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <i class="fa-solid fa-play"></i>
+                <span>SpoTV</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#rsvp" class="nav-link">RSVP</a></li>
+                <li><button class="btn-modal-trigger" id="openModalBtn"><i class="fa-solid fa-link"></i> Quick Links</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="main-content">
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-container">
+                <!-- Hero Left: Event Text & Details -->
+                <div class="hero-left">
+                    <div class="badge-status">
+                        <span class="pulse-dot"></span> SUNDAY NIGHT SPECIAL
+                    </div>
+                    
+                    <h1 class="hero-title">PARTY BEFORE MONDAY! 🎉</h1>
+                    
+                    <p class="hero-subtitle">
+                        SUNDAY NIGHT? WE'RE NOT SLEEPING YET. Pull up to SpoTV and end your weekend with good vibes, music & pure chaos! 🔥🎮
+                    </p>
+
+                    <div class="event-time-card">
+                        <i class="fa-regular fa-calendar-days"></i>
+                        <span><strong>15 OCTOBER 2026</strong> — 21:00 WIB</span>
+                    </div>
+
+                    <!-- Countdown Timer -->
+                    <div class="countdown-container">
+                        <div class="time-box">
+                            <span id="days">00</span>
+                            <small>Days</small>
+                        </div>
+                        <div class="time-divider">:</div>
+                        <div class="time-box">
+                            <span id="hours">00</span>
+                            <small>Hours</small>
+                        </div>
+                        <div class="time-divider">:</div>
+                        <div class="time-box">
+                            <span id="minutes">00</span>
+                            <small>Mins</small>
+                        </div>
+                        <div class="time-divider">:</div>
+                        <div class="time-box">
+                            <span id="seconds">00</span>
+                            <small>Secs</small>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="hero-cta">
+                        <a href="https://www.roblox.com/id/games/114137215486989/SpoTV-Party" target="_blank" class="btn btn-primary">
+                            <i class="fa-solid fa-gamepad"></i> PLAY ON ROBLOX
+                        </a>
+                        <a href="https://discord.gg/u7vfwQmcB6" target="_blank" class="btn btn-secondary">
+                            <i class="fa-brands fa-discord"></i> JOIN DISCORD
+                        </a>
+                    </div>
+
+                    <!-- Gothic Serif Tagline Style -->
+                    <div class="gothic-tagline">
+                        <p class="primary-tagline">Free VIP | Free Title | Open 24/7 | All Genre</p>
+                        <p class="secondary-tagline">Original music from spotify</p>
+                    </div>
+                </div>
+
+                <!-- Hero Right: Big SpoTV Logo & Player Widget -->
+                <div class="hero-right">
+                    <div class="logo-display-card">
+                        <!-- Big SpoTV Monochromatic Logo SVG -->
+                        <div class="big-logo-wrapper">
+                            <svg class="big-spotv-logo" viewBox="0 0 500 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M120 180 C100 120, 200 60, 320 90 C420 115, 450 190, 360 230 C280 265, 180 230, 220 180" stroke="#ffffff" stroke-width="12" stroke-linecap="round" fill="none" opacity="0.85"/>
+                                <path d="M220 135 L300 180 L220 225 Z" fill="#ffffff"/>
+                                <path d="M110 160 Q 90 140 70 170 Q 50 200 90 210" stroke="#a0a5b1" stroke-width="6" fill="none"/>
+                                <path d="M390 140 Q 420 120 440 160 Q 450 190 410 200" stroke="#a0a5b1" stroke-width="6" fill="none"/>
+                                <text x="250" y="320" font-family="'Montserrat', sans-serif" font-weight="900" font-size="76" fill="#ffffff" text-anchor="middle" letter-spacing="4">SpoTV</text>
+                            </svg>
+                        </div>
+
+                        <!-- Embedded Music Player Widget -->
+                        <div class="music-player-widget">
+                            <div class="player-header">
+                                <div class="track-info">
+                                    <i class="fa-solid fa-compact-disc fa-spin"></i>
+                                    <div>
+                                        <span class="track-title">SpoTV Chill Night Vibes</span>
+                                        <span class="track-artist">Now Playing • Live Audio</span>
+                                    </div>
+                                </div>
+                                <button class="play-btn" id="audioToggleBtn" title="Play/Pause Audio">
+                                    <i class="fa-solid fa-play" id="playIcon"></i>
+                                </button>
+                            </div>
+                            <canvas id="visualizerCanvas" width="300" height="45"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About & Features Section -->
+        <section id="about" class="section-container">
+            <h2 class="section-title">WHY JOIN SpoTV?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fa-solid fa-music feature-icon"></i>
+                    <h3>ORIGINAL TRACKS</h3>
+                    <p>Listen to curated high-quality Spotify tracks continuously during the party.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-clock feature-icon"></i>
+                    <h3>OPEN 24/7</h3>
+                    <p>The vibe never stops. AFK system active 24 hours 7 days a week.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-crown feature-icon"></i>
+                    <h3>FREE TITLES</h3>
+                    <p>Claim exclusive titles & VIP access directly when you pull up to the map.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section Slider -->
+        <section id="gallery" class="section-container">
+            <h2 class="section-title">SPOTV MAP GALLERY</h2>
+            <p class="section-subtitle">Intip kebersamaan dan suasana hangout di map Roblox SpoTV!</p>
+            
+            <div class="gallery-slider">
+                <div class="slider-track" id="sliderTrack">
+                    <div class="slide"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80" alt="Club Party Vibe"></div>
+                    <div class="slide"><img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&q=80" alt="DJ & Music"></div>
+                    <div class="slide"><img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" alt="Crowd Vibe"></div>
+                    <div class="slide"><img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=800&q=80" alt="Chill Night"></div>
+                </div>
+                <button class="slider-btn prev" id="prevSlideBtn" aria-label="Previous Slide"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="slider-btn next" id="nextSlideBtn" aria-label="Next Slide"><i class="fa-solid fa-chevron-right"></i></button>
+                <div class="slider-dots" id="sliderDots"></div>
+            </div>
+        </section>
+
+        <!-- RSVP & Live Attendance Section -->
+        <section id="rsvp" class="section-container">
+            <div class="rsvp-grid">
+                <!-- RSVP Form -->
+                <div class="rsvp-card">
+                    <h3>RSVP ATTENDANCE</h3>
+                    <p>Konfirmasi kehadiranmu dan dapatkan VIP Pass!</p>
+                    <form id="rsvpForm">
+                        <div class="form-group">
+                            <label for="username">Roblox Username</label>
+                            <input type="text" id="username" placeholder="cth: RobloxGamer21" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Kehadiran</label>
+                            <select id="status" required>
+                                <option value="Hadir">Pasti Hadir 🔥</option>
+                                <option value="Ragu">Masih Ragu ⚡</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pesan / Shoutout</label>
+                            <textarea id="message" rows="3" placeholder="Tulis pesan untuk komunitas..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">KIRIM KONFIRMASI</button>
+                    </form>
+                </div>
+
+                <!-- Live Attendance Feed -->
+                <div class="rsvp-card">
+                    <h3>DAFTAR HADIR SQUAD (<span id="attendeeCount">0</span>)</h3>
+                    <div class="attendance-feed" id="attendanceFeed">
+                        <!-- Items rendered via JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 SpoTV Community. PLAY. VIBE. CHAOS. REPEAT.</p>
+    </footer>
+
+    <!-- Quick Links Modal Popup -->
+    <div class="modal-overlay" id="linkModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-link"></i> SpoTV Quick Links</h3>
+                <button class="modal-close" id="closeModalBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <a href="https://www.roblox.com/id/games/114137215486989/SpoTV-Party" target="_blank" class="modal-link-item">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <div>
+                        <strong>Roblox Map Event</strong>
+                        <small>roblox.com/games/114137215486989</small>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+                </a>
+
+                <a href="https://www.roblox.com/share/g/173645780" target="_blank" class="modal-link-item">
+                    <i class="fa-solid fa-users"></i>
+                    <div>
+                        <strong>Roblox Group Community</strong>
+                        <small>roblox.com/share/g/173645780</small>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+                </a>
+
+                <a href="https://discord.gg/u7vfwQmcB6" target="_blank" class="modal-link-item">
+                    <i class="fa-brands fa-discord"></i>
+                    <div>
+                        <strong>Discord Server</strong>
+                        <small>discord.gg/u7vfwQmcB6</small>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+                </a>
+
+                <a href="https://www.tiktok.com/@spotv.id" target="_blank" class="modal-link-item">
+                    <i class="fa-brands fa-tiktok"></i>
+                    <div>
+                        <strong>Official TikTok</strong>
+                        <small>tiktok.com/@spotv.id</small>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">Notifikasi</div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
